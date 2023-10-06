@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
-{% block title %} Users {% endblock %}
+{% block title %} Pets {% endblock %}
 {% block content %}
-<h1>Users</h1>
+<h1>Pets</h1>
 <!-- {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
       {% for category, message in messages %}
@@ -13,13 +13,13 @@
   {% for pet in pets %}
     <li>
       <div>
-        <img src="{{ pet.photo_url }}">
-        <p>{{ pet.name }} {% if {{pet.available}} %}<b>is available!</b>{% endif %}</p>
+        <img width="100" height = "100" src="{{ pet.photo_url }}">
+        <p>{{ pet.name }} {% if pet.available %}<b>is available!</b>{% endif %}</p>
       </div>
     </li>
   {% endfor %}
 </ul>
-<form action="/users/new">
-  <button class="btn btn-primary mt-3">Add User</button>
+<form action="/add">
+  <button class="btn btn-primary mt-3">Add Pet</button>
 </form>
 {% endblock %}
