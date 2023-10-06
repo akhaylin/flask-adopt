@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %} Users {% endblock %}
+{% block content %}
+<h1>Users</h1>
+<!-- {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class = "alert alert-{{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %} -->
+<ul>
+  {% for pet in pets %}
+    <li>
+      <div>
+        <img src="{{ pet.photo_url }}">
+        <p>{{ pet.name }} {% if {{pet.available}} %}<b>is available!</b>{% endif %}</p>
+      </div>
+    </li>
+  {% endfor %}
+</ul>
+<form action="/users/new">
+  <button class="btn btn-primary mt-3">Add User</button>
+</form>
+{% endblock %}
