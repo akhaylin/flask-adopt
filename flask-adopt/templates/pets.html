@@ -2,24 +2,18 @@
 {% block title %} Pets {% endblock %}
 {% block content %}
 <h1>Pets</h1>
-<!-- {% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-      {% for category, message in messages %}
-        <div class = "alert alert-{{ category }}">{{ message }}</div>
-      {% endfor %}
-    {% endif %}
-  {% endwith %} -->
-<ul>
+
+<ul class="list-group list-group-horizontal">
   {% for pet in pets %}
-    <li>
-      <div>
+    <li class="list-group-item">
+
         <img width="100" height = "100" src="{{ pet.photo_url }}">
-        <p>{{ pet.name }} {% if pet.available %}<b>is available!</b>{% endif %}</p>
-      </div>
+        <label><a href="/{{ pet.id }}">{{ pet.name }}</a> {% if pet.available %}<b>is available!</b>{% endif %}</label>
+
     </li>
   {% endfor %}
 </ul>
-<form action="/add">
+<form action="{{ url_for('add_pet')}}">
   <button class="btn btn-primary mt-3">Add Pet</button>
 </form>
 {% endblock %}
